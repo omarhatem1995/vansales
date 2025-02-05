@@ -1,0 +1,17 @@
+   ______________________________
+ / \                             \.
+|   | This log file was created  |.
+ \_ | by the Wizard, it contains |.
+    | the configuration data     |.
+    | used for the application   |.
+    | generation.                |.
+    |                            |.
+    | It shouldn't be edited     |.
+    | manually, changing it      |.
+    | won't affect the generated |.
+    | sample.                    |.
+    |   _________________________|___
+    |  /                            /.
+    \_/____________________________/.
+
+{"projectName":"VanSales","projectLocation":"C:\\Users\\omarh\\AndroidStudioProjects\\VanSales","projectNamespace":"com.company.vansales","accountName":"vansales","serviceURL":"https://1778c726trial-dev-vansales.cfapps.us10-001.hana.ondemand.com/","serverURL":"https://mobile-service-cockpit-web.cfapps.us10.hana.ondemand.com/cockpit/v1/org/d4f9689d-23f9-4843-a2e9-df225ba37533/space/efc81296-ea4a-4f38-a9d4-900066b12bce/","applicationID":"vansales","applicationSecurityConfig":"SAML","jsonPath":null,"senderID":null,"serverKey":null,"isLogEnabled":false,"isLogUploadEnabled":false,"SAPSDKLocation":"MAVEN_LOCAL","activationType":"appConfigFile","generateJavaCode":false,"generateOnlineApp":true,"isUsageIncluded":false,"isCrashReportIncluded":false,"isMultipleUserMode":false,"isViewBaseFramework":true}

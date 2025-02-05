@@ -1,0 +1,13 @@
+{
+  "projectInfo": {
+    "projectName": "VanSales",
+    "createdDate": "Thursday, February 6, 2025 at 12:40:10 AM",
+    "regenerateProxyClassDate": ""
+  },
+  "cloudApplication": {
+    "cloudApplicationId": "vansales",
+    "destinations": [
+    ]
+  },
+  "msServerConfigurationName": "vansales"
+}

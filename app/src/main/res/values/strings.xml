@@ -1,0 +1,4 @@
+<resources  xmlns:tools="http://schemas.android.com/tools"
+             tools:ignore="MissingTranslation" >
+    <string name="application_name">VanSales</string>
+</resources>
