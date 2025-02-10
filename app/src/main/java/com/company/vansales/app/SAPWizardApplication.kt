@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceManager
+import com.company.vansales.app.datamodel.sharedpref.GetSharedPreferences
 import com.sap.cloud.mobile.flowv2.core.Flow
 import com.sap.cloud.mobile.flowv2.core.FlowContextRegistry
 import com.sap.cloud.mobile.flowv2.ext.FlowOptions
@@ -16,19 +17,29 @@ import com.sap.cloud.mobile.foundation.mobileservices.SDKInitializer
 import com.sap.cloud.mobile.foundation.networking.LockWipePolicy
 import com.sap.cloud.mobile.foundation.networking.BlockedUserInterceptor.BlockType
 import com.sap.cloud.mobile.foundation.theme.ThemeDownloadService
+import dagger.hilt.android.HiltAndroidApp
 
 import org.slf4j.LoggerFactory
 import java.util.Date
+import java.util.Locale
 
-class SAPWizardApplication: Application() {
+@HiltAndroidApp
+class SAPWizardApplication : Application() {
 
     internal var isApplicationUnlocked = false
     lateinit var preferenceManager: SharedPreferences
 
-
     override fun onCreate() {
         super.onCreate()
         preferenceManager = PreferenceManager.getDefaultSharedPreferences(this)
+        application = this
+        val sharedPreferences = GetSharedPreferences(application)
+        val language = sharedPreferences.getLanguage()?.toLowerCase()
+        if (language == "ar") {
+            Locale.setDefault(Locale("ar"))
+        } else {
+            Locale.setDefault(Locale.getDefault())
+        }
         initServices()
     }
 
@@ -108,9 +119,11 @@ class SAPWizardApplication: Application() {
             BlockType.REGISTRATION_LOCKED -> {
                 startLockFlow()
             }
+
             BlockType.REGISTRATION_WIPED -> {
                 startWipeFlow()
             }
+
             else -> {
                 TODO("Will do something if needed")
             }
@@ -167,8 +180,11 @@ class SAPWizardApplication: Application() {
     }
 
     private fun retrieveLockWipeEnabledStatus(sharedPreferencesPara: SharedPreferences?): Boolean? {
-        val enabled =sharedPreferencesPara?.getBoolean(LOCK_WIPE_ENABLED, false)
-        logger.info("retrieveLockWipeEnabledStatus", "LockWipe is enabled on server: ${enabled.toString()}")
+        val enabled = sharedPreferencesPara?.getBoolean(LOCK_WIPE_ENABLED, false)
+        logger.info(
+            "retrieveLockWipeEnabledStatus",
+            "LockWipe is enabled on server: ${enabled.toString()}"
+        )
         return enabled;
     }
 
@@ -185,6 +201,7 @@ class SAPWizardApplication: Application() {
     }
 
     companion object {
+        lateinit var application: SAPWizardApplication
         const val LOCK_WIPE_POLICY_TAG = "LockWipePolicy"
         const val LOCK_CALL_BACK_TAG = "LockCallback"
         const val WIPE_CALL_BACK_TAG = "WipeCallback"

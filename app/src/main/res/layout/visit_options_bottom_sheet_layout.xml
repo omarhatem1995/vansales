@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="VisitOptionsBottomSheetViewModel"
+            type="com.company.vansales.app.viewmodel.VisitsViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layoutDirection="locale"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ahmed Ahmed"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:id="@+id/customerNameVisitTV"
+            android:fontFamily="@font/bold72"
+            android:textSize="17sp"
+            android:textColor="@color/black"
+            android:drawablePadding="10dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:padding="5dp"
+            android:textAlignment="center"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="15dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:id="@+id/view5"
+            android:layout_marginTop="5dp"
+            android:background="@color/light_grey"
+            app:layout_constraintTop_toBottomOf="@+id/customerNameVisitTV"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <TextView
+            android:id="@+id/startOptionTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/start"
+            android:gravity="center_vertical"
+            app:layout_constraintTop_toBottomOf="@+id/view5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:fontFamily="@font/regular72"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:drawablePadding="15dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:padding="4dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="15dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:id="@+id/view6"
+            android:layout_marginTop="5dp"
+            android:background="@color/light_grey"
+            app:layout_constraintTop_toBottomOf="@+id/startOptionTV"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Show Customer Data"
+            app:layout_constraintTop_toBottomOf="@+id/view6"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:id="@+id/showCustomerDataTV"
+            android:fontFamily="@font/regular72"
+            android:textSize="15sp"
+            android:visibility="gone"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:drawablePadding="15dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:padding="4dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="15dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:id="@+id/view8"
+            android:visibility="gone"
+            android:layout_marginTop="5dp"
+            android:background="@color/light_grey"
+            app:layout_constraintTop_toBottomOf="@+id/showCustomerDataTV"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/view8"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:id="@+id/showCustomerLocationTV"
+            android:fontFamily="@font/regular72"
+            android:visibility="gone"
+            android:textSize="15sp"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:drawablePadding="15dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:padding="4dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="15dp" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:id="@+id/view9"
+            android:layout_marginTop="5dp"
+            android:background="@color/light_grey"
+            app:layout_constraintTop_toBottomOf="@+id/showCustomerLocationTV"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/view9"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:id="@+id/markAsFinishedTV"
+            android:fontFamily="@font/regular72"
+            android:visibility="gone"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:drawablePadding="15dp"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:padding="4dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="15dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:id="@+id/view10"
+            android:layout_marginTop="5dp"
+            android:background="@color/light_grey"
+            app:layout_constraintTop_toBottomOf="@+id/markAsFinishedTV"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

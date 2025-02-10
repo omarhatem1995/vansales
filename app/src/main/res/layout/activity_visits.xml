@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="isEmpty"
+            type="Boolean" />
+        <import type="android.view.View"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:fab="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_grey"
+        android:focusable="true"
+        android:layoutDirection="locale"
+        android:focusableInTouchMode="true">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/visits_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/dark_blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            app:title="@string/visits"
+            app:titleTextColor="@color/white" />
+
+        <EditText
+            android:id="@+id/searchVisitsET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/rectangle_white"
+            android:drawableEnd="@drawable/ic_search"
+            android:hint="@string/search"
+            android:lines="1"
+            android:padding="10dp"
+            android:singleLine="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/visits_toolbar" />
+
+        <ImageView
+            android:id="@+id/sortVisitsAscDescIV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_sort"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchVisitsET" />
+
+
+        <ImageView
+            android:id="@+id/filterVisitsBy_IV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_filter"
+            app:layout_constraintEnd_toStartOf="@+id/filterVisitsByDistanceIV"
+            app:layout_constraintTop_toBottomOf="@+id/searchVisitsET" />
+
+        <ImageView
+            android:id="@+id/filterVisitsByDistanceIV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_sub_menu"
+            app:layout_constraintEnd_toStartOf="@+id/routeSelectionIV"
+            app:layout_constraintTop_toBottomOf="@+id/searchVisitsET" />
+
+        <TextView
+            android:id="@+id/routeSelectionIV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:padding="5dp"
+            android:visibility="@{isEmpty ? View.GONE : View.VISIBLE}"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:fontFamily="@font/light72"
+            android:background="@drawable/rounded_corners_white_background"
+            android:drawablePadding="5dp"
+            android:textSize="17sp"
+            android:layout_marginEnd="8dp"
+            android:drawableStart="@drawable/ic_route_selection"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchVisitsET" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/visitsRV"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="@{isEmpty ? View.GONE : View.VISIBLE}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sortVisitsAscDescIV" />
+
+
+        <com.github.clans.fab.FloatingActionMenu
+            android:id="@+id/menuRed"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="17dp"
+            android:layout_marginBottom="17dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:menu_colorNormal="@color/blue"
+            app:menu_colorPressed="@color/light_blue"
+            fab:menu_labels_ellipsize="end"
+            fab:menu_labels_singleLine="true">
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/toCustomersListFAB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_visits_white"
+                app:fab_colorNormal="@color/light_orange"
+                app:fab_colorPressed="@color/light_blue"
+                fab:fab_label="@string/customers_list"
+                fab:fab_size="normal" />
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/toCreateCustomerFAB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_colorNormal="@color/colorPrimary"
+                app:fab_colorPressed="@color/light_blue"
+                android:visibility="gone"
+                fab:fab_size="normal" />
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/toDriverCollectionsFAB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_colorNormal="@color/colorPrimary"
+                app:fab_colorPressed="@color/light_blue"
+                fab:fab_size="normal"
+                android:visibility="gone"/>
+        </com.github.clans.fab.FloatingActionMenu>
+
+
+        <include
+            android:id="@+id/emptyVisits_Layout"
+            layout="@layout/layout_empty_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/visits_toolbar" />
+        <TextView
+            android:id="@+id/versionNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -15,6 +15,17 @@
         <item name="windowActionModeOverlay">true</item>
     </style>
 
+    <style name="DialogStyle" parent="Base.Theme.AppCompat.Dialog">
+        <item name="windowMinWidthMajor">100%</item>
+        <item name="windowMinWidthMinor">850%</item>
+    </style>
+
+    <style name="MySimplePropertyFormCellStyle" parent="Widget.AppCompat.EditText">
+        <!-- Remove this line to use the default SAP color -->
+         <item name="android:textColor">@color/black</item>
+        <!-- You can add other customizations here if needed -->
+    </style>
+
     <style name="AppTheme.Transparent" parent="AppTheme.NoActionBar">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
@@ -22,6 +33,12 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsFloating">true</item>
         <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+
+    <style name="checkBoxStyle" parent="Theme.MaterialComponents">
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:textColorSecondary">@color/gray</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="FioriTheme.AppBarOverlay" />

@@ -8,4 +8,22 @@
     <color name="link_text">@color/sap_custom_morning_t4</color>
     <!-- Avatar background -->
     <color name="onboarding_avatar_background">@color/colorPrimary</color>
+    <color name="colorPrimary">#0A6ED1</color>
+    <color name="colorPrimaryDark">#354a5f</color>
+    <color name="colorAccent">#0854A0</color>
+    <color name="black">#000</color>
+    <color name="white">#FAFAFA</color>
+    <color name="dark_blue">#354a5f</color>
+    <color name="dark_text">#32363A</color>
+    <color name="gray_text">#6F7275</color>
+    <color name="gray">#6A6D70</color>
+    <color name="gray_border">#D3D7D9</color>
+    <color name="light_grey">#EEEEEF</color>
+    <color name="blue">#0A6ED1</color>
+    <color name="light_blue">#800A6ED1</color>
+    <color name="light_green">#ABE2AB</color>
+    <color name="light_red">#FF8888</color>
+    <color name="light_orange">#FABD64</color>
+    <color name="green">#107E3E</color>
+    <color name="orange">#E9730C</color>
 </resources>

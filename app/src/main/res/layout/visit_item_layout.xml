@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="2dp"
+    android:layoutDirection="locale"
+    android:background="@drawable/rounded_corners_black_border"
+    android:padding="5dp">
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/customerInitialize_TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/bold72"
+        android:gravity="center_vertical|center"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/moreIV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/customerNameTV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/bold72"
+        android:maxLines="2"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/plannedVisit_TV"
+        app:layout_constraintStart_toEndOf="@+id/customerInitialize_TV"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/plannedVisit_TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rounded_corners_white_background"
+        android:padding="5dp"
+        android:textColor="@color/white"
+        app:backgroundTint="#431C53"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@+id/moreIV"
+        app:layout_constraintStart_toEndOf="@+id/customerNameTV"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/customerNumberTypeTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/regular72"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/customerInitialize_TV"
+        app:layout_constraintTop_toBottomOf="@+id/customerNameTV" />
+
+    <TextView
+        android:id="@+id/customerAddressTV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/regular72"
+        android:includeFontPadding="false"
+        android:maxLines="3"
+        android:textColor="@color/gray"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/customerInitialize_TV"
+        app:layout_constraintTop_toBottomOf="@+id/customerNumberTypeTV" />
+
+    <TextView
+        android:id="@+id/customerNoTV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/regular72"
+        android:includeFontPadding="false"
+        android:maxLines="3"
+        android:textColor="@color/gray"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/customerDistanceTV"
+        app:layout_constraintStart_toEndOf="@+id/customerInitialize_TV"
+        app:layout_constraintTop_toBottomOf="@+id/customerAddressTV" />
+
+    <TextView
+        android:id="@+id/customerDistanceTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/regular72"
+        android:includeFontPadding="false"
+        android:textColor="@color/gray"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

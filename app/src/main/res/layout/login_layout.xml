@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="isLoading"
+            type="Boolean" />
+
+        <variable
+            name="isInitialPassword"
+            type="Boolean" />
+
+        <import type="android.view.View" />
+    </data>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layoutDirection="locale">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            tools:context=".view.activities.LoginActivity">
+
+            <com.sap.cloud.mobile.fiori.toolbar.FioriCollapsingToolbar
+                android:id="@+id/collapsing_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:title="@string/application_name">
+
+                <com.sap.cloud.mobile.fiori.object.ObjectHeader
+                    android:id="@+id/objectHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="?attr/actionBarSize">
+
+                </com.sap.cloud.mobile.fiori.object.ObjectHeader>
+
+                <com.sap.cloud.mobile.fiori.toolbar.FioriToolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:popupTheme="@style/AppTheme.PopupOverlay"
+                    app:theme="@style/FioriTheme.FioriAppBar">
+
+                </com.sap.cloud.mobile.fiori.toolbar.FioriToolbar>
+
+            </com.sap.cloud.mobile.fiori.toolbar.FioriCollapsingToolbar>
+
+            <ImageView
+                android:id="@+id/login_signIn_imageView"
+                android:layout_width="263dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/collapsing_toolbar" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/login_driverName_editText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:hint="@string/driver"
+                android:inputType="textPersonName"
+                android:textColor="@color/dark_text"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/login_signIn_imageView"
+                app:layout_constraintWidth_percent="0.8" />
+
+            <com.sap.cloud.mobile.fiori.formcell.SimplePropertyFormCell
+                android:id="@+id/login_userName_editText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:hint="@string/user_name"
+                android:inputType="textPersonName"
+                android:visibility="@{isInitialPassword ? View.GONE : View.VISIBLE}"
+                app:isEditable="true"
+                app:key="@string/user_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/login_signIn_imageView"
+                app:layout_constraintWidth_percent="0.8" />
+
+            <!--            <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/layout_login_password_editText"
+                            android:visibility="@{isInitialPassword ? View.GONE : View.VISIBLE}"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            app:boxStrokeWidth="0dp"
+                            app:hintEnabled="false"
+                            app:boxStrokeWidthFocused="0dp"
+                            app:passwordToggleEnabled="true"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/login_userName_editText"
+                            app:layout_constraintWidth_percent="0.8" >-->
+
+            <com.sap.cloud.mobile.fiori.formcell.SimplePropertyFormCell
+                android:id="@+id/login_password_editText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/password"
+                android:inputType="textPersonName|textPassword"
+                android:lines="1"
+                android:padding="4dp"
+                android:singleLine="true"
+                android:textAlignment="viewStart"
+                android:textColor="@color/dark_text"
+                android:textIsSelectable="true"
+                app:isEditable="true"
+                app:key="Password"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/login_userName_editText"
+                app:layout_constraintWidth_percent="0.8" />
+
+            <!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_login_new_password_editText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:visibility="@{isInitialPassword ? View.VISIBLE : View.GONE}"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/login_password_editText"
+                app:layout_constraintWidth_percent="0.8"
+                app:passwordToggleEnabled="true">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/login_new_password_editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10"
+                    android:hint="@string/new_pass"
+                    android:inputType="textPersonName|textPassword"
+                    android:lines="1"
+                    android:singleLine="true"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/dark_text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_login_confirm_new_password_editText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:visibility="@{isInitialPassword ? View.VISIBLE : View.GONE}"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_login_new_password_editText"
+                app:layout_constraintWidth_percent="0.8"
+                app:passwordToggleEnabled="true">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/login_confirm_new_password_editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10"
+                    android:hint="@string/confirm_new_password"
+                    android:inputType="textPersonName|textPassword"
+                    android:lines="1"
+                    android:singleLine="true"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/dark_text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutMainButtons"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="120dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="120dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_login_confirm_new_password_editText">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/login_signIn_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_empty"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:text="@{isInitialPassword ? @string/add_new_pass : @string/signIn}"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFF" />
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageBackgroundProgress"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:elevation="2dp"
+                android:visibility="@{isLoading ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:elevation="4dp"
+                android:visibility="@{isLoading ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/versionNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</layout>

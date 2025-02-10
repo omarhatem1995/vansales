@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="isFree"
+            type="Boolean" />
+        <variable
+            name="isExchange"
+            type="Boolean" />
+
+        <import type="android.view.View"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layoutDirection="locale"
+        android:background="@drawable/rectangle_gray">
+
+        <TextView
+            android:id="@+id/add_material_dialog_header_textView"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@color/colorPrimaryDark"
+            android:fontFamily="@font/bold72"
+            android:gravity="center"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="@string/add_item"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/add_material_dialog_header_imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/ic_add_shopping_cart"
+            app:layout_constraintBottom_toBottomOf="@+id/add_material_dialog_header_textView"
+            app:layout_constraintStart_toStartOf="@+id/add_material_dialog_header_textView"
+            app:layout_constraintTop_toTopOf="@+id/add_material_dialog_header_textView" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/add_material_dialog_done_button"
+            android:layout_width="68dp"
+            android:layout_height="38dp"
+            android:layout_gravity="start"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/button"
+            android:drawableTop="@drawable/ic_done"
+            android:fontFamily="@font/regular72"
+            android:text="@string/done"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/add_material_dialog_header_textView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/add_material_dialog_search_editText"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/rounded_corners_white_background"
+            android:drawableEnd="@drawable/ic_search"
+            android:hint="@string/search"
+            android:lines="1"
+            android:paddingStart="4dp"
+            android:singleLine="true"
+            app:layout_constraintEnd_toStartOf="@+id/add_material_dialog_barcode_imageView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_material_dialog_header_textView" />
+
+        <TextView
+            android:id="@+id/add_material_dialog_total_price_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/bold72"
+            android:text="@string/total_invoice_price"
+            android:textColor="@color/dark_text"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/add_material_dialog_foc_textView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_material_dialog_search_editText" />
+
+        <TextView
+            android:id="@+id/add_material_dialog_total_price_value_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/regular72"
+            android:maxLength="12"
+            android:text="0"
+            android:textColor="@color/blue"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/add_material_dialog_total_price_textView"
+            app:layout_constraintStart_toEndOf="@+id/add_material_dialog_total_price_textView"
+            app:layout_constraintTop_toTopOf="@+id/add_material_dialog_total_price_textView" />
+
+        <TextView
+            android:id="@+id/add_material_dialog_foc_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/bold72"
+            android:text="@string/total_foc"
+            android:textColor="@color/dark_text"
+            android:textSize="16sp"
+            android:visibility="invisible"
+            app:layout_constraintTop_toBottomOf="@+id/add_material_dialog_total_price_textView"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/add_material_dialog_foc_value_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:fontFamily="@font/regular72"
+            android:maxLength="12"
+            android:text="0"
+            android:textColor="@color/blue"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/add_material_dialog_total_price_value_textView"
+            app:layout_constraintStart_toEndOf="@id/add_material_dialog_total_price_value_textView"
+            app:layout_constraintTop_toTopOf="@id/add_material_dialog_total_price_value_textView" />
+
+        <TextView
+            android:id="@+id/add_group_dialog_foc_value_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/regular72"
+            android:maxLength="12"
+            android:text="0"
+            android:textColor="@color/blue"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/add_material_dialog_foc_textView"
+            app:layout_constraintStart_toEndOf="@+id/add_material_dialog_foc_textView"
+            app:layout_constraintTop_toTopOf="@+id/add_material_dialog_foc_textView" />
+
+        <TextView
+            android:id="@+id/add_group_selected_foc_value_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:fontFamily="@font/regular72"
+            android:maxLength="12"
+            android:text="0"
+            android:textColor="@color/blue"
+            android:textSize="14sp"
+            android:visibility="@{isFree ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/add_group_dialog_foc_value_textView"
+            app:layout_constraintStart_toEndOf="@+id/add_group_dialog_foc_value_textView"
+            app:layout_constraintTop_toTopOf="@+id/add_group_dialog_foc_value_textView" />
+
+        <TextView
+            android:id="@+id/add_material_dialog_group_selection_textView"
+            android:layout_width="120dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/rounded_corners_white_background"
+            android:clickable="true"
+            android:drawableEnd="@drawable/ic_label"
+            android:focusable="true"
+            android:fontFamily="@font/regular72"
+            android:gravity="center_vertical"
+            android:hint="@string/Select_Group"
+            android:paddingStart="4dp"
+            android:paddingEnd="2dp"
+            android:textColor="@color/gray_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_material_dialog_search_editText" />
+
+        <ImageView
+            android:id="@+id/add_material_dialog_barcode_imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_barcode"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_material_dialog_header_textView" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/add_materials_dialog_items_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view13" />
+
+        <View
+            android:id="@+id/view13"
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_marginTop="30dp"
+            android:background="@color/gray_border"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_material_dialog_foc_value_textView" />
+
+        <ProgressBar
+            android:id="@+id/add_materials_dialog_progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/add_materials_dialog_items_list"
+            app:layout_constraintTop_toBottomOf="@+id/view13" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

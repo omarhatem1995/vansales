@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="isLoading"
+            type="Boolean" />
+
+        <variable
+            name="type"
+            type="com.company.vansales.app.utils.enums.BatchScanTypesEnum" />
+
+        <import type="com.company.vansales.app.utils.enums.BatchScanTypesEnum"/>
+
+        <import type="android.view.View"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/batchScan_CL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_grey"
+        android:focusable="true"
+        android:layoutDirection="locale"
+        android:focusableInTouchMode="true">
+
+        <View
+            android:id="@+id/batch_scan_header_view"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/colorPrimaryDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/batch_scan_header_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/bold72"
+            android:text="@string/batch_scan"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/batch_scan_header_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/batch_scan_previous_button"
+            android:layout_width="68dp"
+            android:layout_height="38dp"
+            android:layout_gravity="start"
+            android:background="@drawable/button"
+            android:drawableTop="@drawable/ic_left_arrow"
+            android:fontFamily="@font/regular72"
+            android:layoutDirection="ltr"
+            android:text="@string/previous"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:clickable="@{isLoading ? false : true}"
+            app:layout_constraintBottom_toBottomOf="@+id/batch_scan_header_view"
+            app:layout_constraintStart_toStartOf="@+id/batch_scan_header_view"
+            app:layout_constraintTop_toTopOf="@+id/batch_scan_header_view" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/batch_scan_done_button"
+            android:layout_width="68dp"
+            android:layout_height="38dp"
+            android:layout_gravity="start"
+            android:background="@drawable/button"
+            android:drawableTop="@drawable/ic_done"
+            android:fontFamily="@font/regular72"
+            android:layoutDirection="ltr"
+            android:text="@string/done"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:clickable="@{isLoading ? false : true}"
+            app:layout_constraintBottom_toBottomOf="@+id/batch_scan_header_view"
+            app:layout_constraintEnd_toEndOf="@+id/batch_scan_header_view"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/batch_scan_search_ET"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:padding="5dp"
+            android:background="@drawable/rounded_corners_white_background"
+            android:drawableEnd="@drawable/ic_search"
+            android:hint="@string/search"
+            android:lines="1"
+            android:singleLine="true"
+            app:layout_constraintEnd_toStartOf="@+id/scanBarcode_IV"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/batch_scan_header_view" />
+
+        <ImageView
+            android:id="@+id/scanBarcode_IV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_barcode"
+            app:layout_constraintBottom_toBottomOf="@+id/batch_scan_search_ET"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/batch_scan_search_ET" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/bold72"
+            android:text="@string/selected_items"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="@+id/hideCountedItems_S"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/hideCountedItems_S" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/autoAddBTN"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/button_light_blue"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="@string/auto"
+            android:enabled="@{type == BatchScanTypesEnum.FILL_UP ? false : true}"
+            android:visibility="@{type == BatchScanTypesEnum.STOCK_COUNT ? View.INVISIBLE : View.VISIBLE}"
+            android:textAllCaps="false"
+            android:textColor="#FFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/batch_scan_search_ET" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="@{type == BatchScanTypesEnum.OFF_LOAD ? View.VISIBLE : View.GONE}"
+            android:id="@+id/layoutSpinnerText"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/autoAddBTN" >
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="8dp"
+                android:text="Plant"
+                android:fontFamily="@font/bold72"
+                android:textSize="16sp"
+                android:spinnerMode="dropdown"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="8dp"
+                android:text="Storage Location"
+                android:fontFamily="@font/bold72"
+                android:textSize="16sp"
+                android:spinnerMode="dropdown"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/layoutSpinner"
+            android:visibility="@{type == BatchScanTypesEnum.OFF_LOAD ? View.VISIBLE : View.GONE}"
+            android:layout_marginTop="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutSpinnerText" >
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="8dp"
+                android:spinnerMode="dropdown"
+                android:id="@+id/spinnerWerks"/>
+
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="8dp"
+                android:spinnerMode="dropdown"
+                android:id="@+id/spinnerIgort"/>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/itemsRV"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutSpinner" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/hideCountedItems_S"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/bold72"
+            android:text="@string/hide_counted"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/autoAddBTN"
+            app:layout_constraintEnd_toStartOf="@+id/autoAddBTN"
+            app:layout_constraintTop_toTopOf="@+id/autoAddBTN" />
+
+        <ImageView
+            android:id="@+id/imageBackgroundProgress"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="@drawable/rounded_white"
+            android:elevation="2dp"
+            android:visibility="@{isLoading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:elevation="4dp"
+            android:visibility="@{isLoading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/versionNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

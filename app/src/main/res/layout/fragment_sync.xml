@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layoutDirection="locale">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/syncingStatus_TV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:text="@string/syncing"
+                android:textAlignment="center"
+                android:textColor="@color/blue"
+                android:textSize="22sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/syncingDone_BTN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_light_blue"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:text="@string/done"
+                android:textAllCaps="false"
+                android:textColor="#FFFF"
+                android:textSize="18sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/syncingDetails_TV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="22dp"
+                android:drawableEnd="@drawable/ic_drop_down_circle"
+                android:text="@string/syncing_details"
+                android:textSize="22sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/syncingStatus_TV" />
+
+            <View
+                android:id="@+id/view6"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="22dp"
+                android:background="@color/gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/syncingDetails_TV" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:layout_constraintTop_toBottomOf="@id/view6">
+
+
+                    <TextView
+                        android:id="@+id/syncingCustomer_TV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/bold72"
+                        android:text="@string/syncing_customers"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toTopOf="@+id/syncingMaterials_TV"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <com.sap.cloud.mobile.fiori.indicator.FioriProgressBar
+                        android:id="@+id/syncingCustomer_PB"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="8dp"
+                        android:indeterminate="true"
+                        app:layout_constraintBottom_toTopOf="@+id/syncingMaterials_PB"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <ImageView
+                        android:id="@+id/syncingCustomerStatus_IV"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="8dp"
+                        android:indeterminate="true"
+                        android:visibility="invisible"
+                        app:layout_constraintBottom_toTopOf="@+id/syncingMaterials_PB"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/syncingMaterials_TV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/bold72"
+                        android:text="@string/syncing_materials"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toTopOf="@+id/syncingMaterialsUnit_TV"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/syncingCustomer_TV" />
+
+
+                    <com.sap.cloud.mobile.fiori.indicator.FioriProgressBar
+                        android:id="@+id/syncingMaterials_PB"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="2dp"
+                        android:indeterminate="true"
+                        app:layout_constraintBottom_toTopOf="@+id/syncingMaterialsUnit_PB"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/syncingCustomer_PB" />
+
+                    <ImageView
+                        android:id="@+id/syncingMaterialsStatus_IV"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="2dp"
+                        android:indeterminate="true"
+                        android:visibility="invisible"
+                        app:layout_constraintBottom_toTopOf="@+id/syncingMaterialsUnit_PB"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/syncingCustomer_PB" />
+
+                    <TextView
+                        android:id="@+id/syncingMaterialsUnit_TV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/bold72"
+                        android:text="@string/syncing_units"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toTopOf="@+id/syncingTruckContent_TV"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/syncingMaterials_TV" />
+
+
+                    <com.sap.cloud.mobile.fiori.indicator.FioriProgressBar
+                        android:id="@+id/syncingMaterialsUnit_PB"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="2dp"
+                        android:indeterminate="true"
+                        app:layout_constraintBottom_toTopOf="@+id/syncingTruckContent_PB"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/syncingMaterials_PB" />
+
+                    <ImageView
+                        android:id="@+id/syncingMaterialsUnitStatus_IV"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="2dp"
+                        android:indeterminate="true"
+                        android:visibility="invisible"
+                        app:layout_constraintBottom_toTopOf="@+id/syncingTruckContent_PB"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/syncingMaterials_PB" />
+
+
+                    <TextView
+                        android:id="@+id/syncingTruckContent_TV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/bold72"
+                        android:text="@string/syncing_truck"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toTopOf="@+id/syncingVisits_TV"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/syncingMaterialsUnit_TV" />
+
+
+                    <com.sap.cloud.mobile.fiori.indicator.FioriProgressBar
+                        android:id="@+id/syncingTruckContent_PB"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="2dp"
+                        android:indeterminate="true"
+                        app:layout_constraintBottom_toTopOf="@+id/syncingVisits_PB"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/syncingMaterialsUnit_PB" />
+
+                    <ImageView
+                        android:id="@+id/syncingTruckContentStatus_IV"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="2dp"
+                        android:indeterminate="true"
+                        android:visibility="invisible"
+                        app:layout_constraintBottom_toTopOf="@+id/syncingVisits_PB"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/syncingMaterialsUnit_PB" />
+
+
+
+                    <TextView
+                        android:id="@+id/syncingVisits_TV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/bold72"
+                        android:text="@string/syncing_visits"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toTopOf="@+id/syncingPrices_TV"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/syncingTruckContent_TV" />
+
+
+                    <com.sap.cloud.mobile.fiori.indicator.FioriProgressBar
+                        android:id="@+id/syncingVisits_PB"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="2dp"
+                        android:indeterminate="true"
+                        app:layout_constraintBottom_toTopOf="@+id/syncingPrices_PB"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/syncingTruckContent_PB" />
+
+                    <ImageView
+                        android:id="@+id/syncingVisitsStatus_IV"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="2dp"
+                        android:indeterminate="true"
+                        android:visibility="invisible"
+                        app:layout_constraintBottom_toTopOf="@+id/syncingPrices_PB"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/syncingTruckContent_PB" />
+
+                    <TextView
+                        android:id="@+id/syncingPrices_TV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/bold72"
+                        android:text="@string/syncing_prices"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toTopOf="@+id/syncingConditions_TV"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/syncingVisits_TV" />
+
+
+                    <TextView
+                        android:id="@+id/syncingPricesValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/bold72"
+                        android:text="0"
+                        android:textSize="12sp"
+                        android:textColor="@color/blue"
+                        app:layout_constraintBottom_toTopOf="@+id/syncingConditions_TV"
+                        app:layout_constraintStart_toEndOf="@id/syncingPrices_TV"
+                        app:layout_constraintTop_toBottomOf="@+id/syncingVisits_TV" />
+
+
+
+                    <com.sap.cloud.mobile.fiori.indicator.FioriProgressBar
+                        android:id="@+id/syncingPrices_PB"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="2dp"
+                        android:indeterminate="true"
+                        app:layout_constraintBottom_toTopOf="@+id/syncingConditions_PB"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/syncingVisits_PB" />
+
+                    <ImageView
+                        android:id="@+id/syncingPricesStatus_IV"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="2dp"
+                        android:indeterminate="true"
+                        android:visibility="invisible"
+                        app:layout_constraintBottom_toTopOf="@+id/syncingConditions_PB"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/syncingVisits_PB" />
+
+                    <TextView
+                        android:id="@+id/syncingConditions_TV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/bold72"
+                        android:text="@string/syncing_conditions"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/syncingPrices_TV" />
+
+                    <TextView
+                        android:id="@+id/syncingConditionValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/bold72"
+                        android:text="0"
+                        android:textSize="12sp"
+                        android:textColor="@color/blue"
+                        app:layout_constraintBottom_toTopOf="@+id/syncingConditions_TV"
+                        app:layout_constraintStart_toEndOf="@id/syncingConditions_TV"
+                        app:layout_constraintTop_toBottomOf="@+id/syncingConditions_TV" />
+
+
+                    <com.sap.cloud.mobile.fiori.indicator.FioriProgressBar
+                        android:id="@+id/syncingConditions_PB"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="2dp"
+                        android:indeterminate="true"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/syncingPrices_PB" />
+
+
+                    <ProgressBar
+                        android:id="@+id/progressBar_Horizantal"
+                        style="@android:style/Widget.Holo.ProgressBar.Horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="5dp"
+                        android:layout_marginTop="4dp"
+                        android:visibility="gone"
+                        android:progressDrawable="@drawable/horizontal_progress_step_bar"
+                        app:layout_constraintEnd_toEndOf="@+id/syncingConditions_TV"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/syncingConditions_TV" />
+
+                    <ImageView
+                        android:id="@+id/syncingConditionsStatus_IV"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="8dp"
+                        android:indeterminate="true"
+                        android:visibility="invisible"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/syncingPrices_PB" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

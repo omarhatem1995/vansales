@@ -5,6 +5,9 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 
@@ -18,6 +21,7 @@ import com.sap.cloud.mobile.foundation.mobileservices.ApplicationStates
 import com.sap.cloud.mobile.foundation.networking.BlockedUserInterceptor
 import com.company.vansales.databinding.ActivitySplashBinding
 import com.company.vansales.R
+import com.company.vansales.app.activity.LoginActivity
 
 class WelcomeActivity : AppCompatActivity() {
     private val fManager = this.supportFragmentManager
@@ -30,6 +34,13 @@ class WelcomeActivity : AppCompatActivity() {
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
         startConfigurationLoader()
+/*        Handler(Looper.getMainLooper()).postDelayed({
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }, 2000)*/
+        binding.nextButton.setOnClickListener {
+            startActivity(Intent(this, NextActivity::class.java))
+        }
     }
 
     private fun startConfigurationLoader() {
